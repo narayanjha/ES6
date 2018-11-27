@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* fibonacci(n) {
+            const infinite = !n && n !== 0;
+            let current = 0;
+            let next = 1;
+
+            while (infinite || n--) {
+                yield current;
+                [current, next] = [next, current + next];
+            }
+        }
+        let [...first10] = fibonacci(10);
+        console.log(first10);
+
+        function fibonacci_new(num) {
+            var a = 1, b = 0, temp;
+
+            while (num >= 0) {
+                temp = a;
+                a = a + b;
+                b = temp;
+                num--;
+            }
+
+            return b;
+        }
+        console.log(fibonacci_new(5))
+        let theNumber = Number(prompt("Pick a number"));
+        console.log("Your number is the square root of " +
+            theNumber * theNumber);
+
+        // while and do loops
+        let number = 0;
+        while (number <= 12) {
+            console.log("While loop ", number);
+            number = number + 2;
+        }
+        console.log("While loop final result", number);
+
+        let result = 1;
+        let counter = 0;
+        while (counter < 10) {
+            result = result * 2;
+            counter = counter + 1;
+        }
+        console.log(result);
+
+        // Optional Arguments
+        function minus(a, b) {
+            if (b === undefined) return -a;
+            else return a - b;
+        }
+
+        console.log(minus(10));
+        console.log(minus(10, 5));
+
+        function power(base, exponent = 2) {
+            let result = 1;
+            for (let count = 0; count < exponent; count++) {
+                result *= base;
+            }
+            return result;
+        }
+
+        console.log(power(4));
+        console.log(power(2, 6));
+
+
+    </script>
+</body>
+
+</html>
